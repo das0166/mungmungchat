@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/id"
+            android:hint="ID"
+            android:layout_marginBottom="5dp"/>
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/pw"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="5dp"/>
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자동로그인"
+            android:id="@+id/autologin"
+            android:layout_gravity="right"
+            android:layout_marginBottom="5dp"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:text="로그인"
+            android:background="@color/brown"
+            android:textStyle="bold"
+            android:id="@+id/login"/>
+    </LinearLayout>
+</LinearLayout>
