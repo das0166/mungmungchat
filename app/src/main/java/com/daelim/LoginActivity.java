@@ -12,7 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    Boolean loginChecked;
+//    Boolean loginChecked = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,43 +26,43 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sp.edit();
 
 
+//        autologin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView,  boolean isChecked) {
+//                if (isChecked) {
+//                    loginChecked = true;
+//                } else {
+//                    loginChecked = false;
+//                    editor.clear();
+//                    editor.commit();
+//                }
+//            }
+//        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putString("id", id.getText().toString());
+                editor.putString("pw", pw.getText().toString());
+                editor.putBoolean("autologin",autologin.isChecked());
+                editor.commit();
                 Intent intent = new Intent(LoginActivity.this,ChatActivity.class);
                 startActivity(intent);
             }
         });
 
-        if (sp.getBoolean("autologin", false)) {
+        if (sp.getBoolean("autologin", true)) {
             id.setText(sp.getString("id", ""));
             pw.setText(sp.getString("pw", ""));
             autologin.setChecked(true);
-//        } else {
-//                if (loginChecked) {
-//                    editor.putString("id", id.getText().toString());
-//                    editor.putString("pw", pw.getText().toString());
-//                    editor.putBoolean("autologin", true);
-//                    editor.commit();
-//                }
-//            }
+        } else {
+                editor.clear();
+                editor.commit();
+        }
 
-            autologin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        loginChecked = true;
-                    } else {
-                        loginChecked = false;
-                        editor.clear();
-                        editor.commit();
-                    }
-                }
-            });
+
 
 
         }
 
     }
-}
