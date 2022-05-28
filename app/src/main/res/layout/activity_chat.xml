@@ -4,11 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ChatActivity">
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="left"
+        android:scaleType="fitXY"
+        android:background="#00ff0000"
+        android:src="@drawable/logout"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="44"
-        ></TextView>
+        android:layout_height="435dp"
+        android:background="@drawable/background"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            />
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:background="#00ff0000"
+            android:src="@drawable/pawprint"/>
+    </LinearLayout>
+
 
 </LinearLayout>
