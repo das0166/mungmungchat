@@ -17,7 +17,7 @@ public class IntroActivity extends AppCompatActivity {
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(IntroActivity.this, ChatActivity.class));
+                startActivity(new Intent(IntroActivity.this, LoginActivity.class));
                 finish();
             }
         },3000);

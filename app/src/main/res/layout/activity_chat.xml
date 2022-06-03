@@ -6,14 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ChatActivity">
-    <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="left"
-        android:scaleType="fitXY"
-        android:background="#00ff0000"
-        android:src="@drawable/logout"/>
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:scaleType="fitXY"
+            android:background="#00ff0000"
+            android:src="@drawable/logout"
+            android:id="@+id/out"/>
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="id님 환영합니다."
+            android:textSize="20dp"
+            android:layout_marginLeft="15dp"
+            />
+    </LinearLayout>
+
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="435dp"
         android:background="@drawable/background"/>
@@ -24,6 +40,7 @@
         <EditText
             android:layout_width="320dp"
             android:layout_height="wrap_content"
+            android:id="@+id/nae"
             />
         <ImageButton
             android:layout_width="30dp"
@@ -31,6 +48,7 @@
             android:layout_gravity="center"
             android:scaleType="fitXY"
             android:background="#00ff0000"
+            android:id="@+id/send"
             android:src="@drawable/pawprint"/>
     </LinearLayout>
 

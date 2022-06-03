@@ -40,13 +40,22 @@ public class LoginActivity extends AppCompatActivity {
 //        });
 
         login.setOnClickListener(new View.OnClickListener() {
+            String sa_id, sa_pw;
+            Boolean auto;
+
             @Override
             public void onClick(View view) {
                 editor.putString("id", id.getText().toString());
                 editor.putString("pw", pw.getText().toString());
                 editor.putBoolean("autologin",autologin.isChecked());
                 editor.commit();
+                sa_id=sp.getString("id","");
+                sa_pw=sp.getString("pw","");
+                auto=sp.getBoolean("autologin",true);
                 Intent intent = new Intent(LoginActivity.this,ChatActivity.class);
+                intent.putExtra("id",sa_id);
+                intent.putExtra("pw",sa_pw);
+                intent.putExtra("auto",auto);
                 startActivity(intent);
             }
         });
