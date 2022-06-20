@@ -44,14 +44,11 @@ public class ChatActivity extends AppCompatActivity {
         EditText nae = findViewById(R.id.nae);
         ImageButton send = findViewById(R.id.send);
         ListView listView = findViewById(R.id.naelist);
-
         id=getIntent().getStringExtra("id");
         pw=getIntent().getStringExtra("pw");
         auto=getIntent().getBooleanExtra("auto",true);
-
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
-
         try {
             ws = new WebSocketClient(new URI("ws://61.83.168.88:4877")) {
                 @Override
@@ -61,7 +58,6 @@ public class ChatActivity extends AppCompatActivity {
                     if(id != null){
                         getid.setText(id + "님 환영합니다.");
                     }
-
                     out.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -71,7 +67,6 @@ public class ChatActivity extends AppCompatActivity {
                         }
                     });
                 }
-
                 @Override
                 public void onMessage(String s) {
                     send.setOnClickListener(new View.OnClickListener() {
@@ -85,14 +80,11 @@ public class ChatActivity extends AppCompatActivity {
                         }
                     });
                     Log.e("!!!","onMessage s : "+s);
-
                 }
-
                 @Override
                 public void onClose(int i, String s, boolean b) {
                     Log.e("!!!","onClose : "+s);
                 }
-
                 @Override
                 public void onError(Exception e) {
                     Log.e("!!!","onError");
@@ -100,7 +92,6 @@ public class ChatActivity extends AppCompatActivity {
                 }
             };
             ws.connect();
-
         } catch(Exception e) {
             e.printStackTrace();
         }

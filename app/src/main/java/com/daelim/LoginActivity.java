@@ -12,8 +12,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-//    Boolean loginChecked = true;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,25 +22,9 @@ public class LoginActivity extends AppCompatActivity {
         Button login = findViewById(R.id.login);
         SharedPreferences sp = getSharedPreferences("name", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-
-
-//        autologin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView,  boolean isChecked) {
-//                if (isChecked) {
-//                    loginChecked = true;
-//                } else {
-//                    loginChecked = false;
-//                    editor.clear();
-//                    editor.commit();
-//                }
-//            }
-//        });
-
         login.setOnClickListener(new View.OnClickListener() {
             String sa_id, sa_pw;
             Boolean auto;
-
             @Override
             public void onClick(View view) {
                 editor.putString("id", id.getText().toString());
@@ -59,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         if (sp.getBoolean("autologin", true)) {
             id.setText(sp.getString("id", ""));
             pw.setText(sp.getString("pw", ""));
@@ -68,10 +49,5 @@ public class LoginActivity extends AppCompatActivity {
                 editor.clear();
                 editor.commit();
         }
-
-
-
-
         }
-
     }
